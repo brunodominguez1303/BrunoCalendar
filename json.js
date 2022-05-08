@@ -1,9 +1,13 @@
 const http = require('http');
 
 const host = 'localhost';
-const post = 8080;
+const port = 8080;
 
-function requestListener(req, res) {}
+function requestListener(req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	res.writeHead(200);
+	res.end(`{"message": "This is a JSON response."}`);
+}
 
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {
